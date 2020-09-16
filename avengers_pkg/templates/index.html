@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--Beginning of User Login Template-->
+    {% if current_user.is_anonymous %}
+    <h1>Welcome, thank you for coming to the Avengers Phonebook</h1>
+    <h2>We thank the heros offering their services!</h2>
+    <p>
+        All heros in the database below have graciously offered their
+        information so people in need could reach them quickly and effectively!
+    </p>
+
+    <!--Beginning of Guest Template-->
+    {% else %}
+    <h1>Welcome, {{ current_user.heroname }} </h1>
+    {% endif %}
+    
+    <h2>Hero Database</h2>
+    <h4>HERO | CONTACT NUMBER</h4>
+    {% for heros in show_heros %}
+        {{ heros }}<br>
+    {% endfor %}
+{% endblock %}

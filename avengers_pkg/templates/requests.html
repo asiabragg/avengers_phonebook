@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hi, {{ current_user.heroname }}</h1>
+<h2>Welcome to the Request Board</h2>
+<p>If you have a request you would like to make another
+    fellow hero, please submit a request below.
+</p>
+<p>
+    Also view some of the recent posts from your fellow
+    heros, remember that saving the world is a team effort!
+</p>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title }}<br>
+    </p>
+    <p>
+        {{ form.body.label }}<br>
+        {{ form.body(cols=32, rows=4) }}<br>
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% for request in requests %}
+    <br>
+    <div>
+        <h3>{{ request.title }}</h3>
+        <p>{{ request.post_date }}</p>
+        <p>Requesting Hero: {{ request.requester.heroname }}</p>
+        <p>Request Details: {{ request.body }}</p>
+    </div>
+    <br>
+    {% endfor %}
+{% endblock %}

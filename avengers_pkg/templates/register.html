@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Register</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.heroname.label }}<br>
+        {{ form.heroname }}<br>
+        {% for error in form.heroname.error %}
+        <span class="invalid-feedback">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email }}<br>
+        {% for error in form.email.error %}
+        <span class="invalid-feedback">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.phone_number.label }}<br>
+        {{ form.phone_number }}<br>
+        {% for error in form.phone_number.error %}
+        <span class="invalid-feedback">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password }}<br>
+        {% for error in form.password.error %}
+        <span class="invalid-feedback">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.confirm_password.label }}<br>
+        {{ form.confirm_password }}<br>
+        {% for error in form.confirm_password.error %}
+        <span class="invalid-feedback">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
